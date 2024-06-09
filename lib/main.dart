@@ -35,18 +35,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  List<Pokemon> _pokemons = [];
+  User? _user;
 
   void _incrementCounter() async {
-    final pokemon = await getPokemon();
+    final user = await getUser(1);
     setState(() {
-      _pokemons = pokemon;
+      _user = user;
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = _user;
+    String userName = "Carregue um usuário";
+    if(user != null){
+      userName = user.name;
+    }
     
     return Scaffold(
       appBar: AppBar(
@@ -68,8 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            for(final pokemon in _pokemons)
-            Text(pokemon.name)
+            Text(userName)
           ],
         ),
       ),

@@ -1,10 +1,19 @@
-class Pokemon {
-  String name;
+class User {
+  final int id;
+  final String name;
+  final String email;
 
-  Pokemon(this.name);
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+  });
 
-  static Pokemon fromJson(Map<String, dynamic> data){
-    final pokemonName = data["name"];
-    return Pokemon(pokemonName);
+  static User fromJson(Map<String, dynamic> data) {
+    return User(
+      id: data["id"],
+      name: data["name"],
+      email: data["email"],
+    );
   }
 }
