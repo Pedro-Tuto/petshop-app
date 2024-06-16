@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petshop/model.dart';
+import 'package:openapi/api.dart';
 import 'package:petshop/request.dart';
 
 class UserInfoPage extends StatefulWidget {
@@ -10,11 +10,11 @@ class UserInfoPage extends StatefulWidget {
 }
 
 class _UserInfoPageState extends State<UserInfoPage> {
-  User? _user;
+  UserRead? _user;
 
   void loadUser(int userId) async {
     try {
-      final user = await getUser(userId);
+      final user = await api.getUserUsersIdGet(userId);
 
       setState(() {
         _user = user;
