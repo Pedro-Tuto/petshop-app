@@ -15,21 +15,24 @@ class BannerA3 extends StatelessWidget {
       height: screenSize.height / 1.2,
       constraints: const BoxConstraints(
         minHeight: 350,
-        maxHeight: 500,
+        maxHeight: 450,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          
+          //Título
           const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 "Bem vindo ao PetCare App",
                 style: TextStyle(
-                    fontSize: 32,
-                    height: 1.5,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 15, 52, 61)),
+                  fontSize: 32,
+                  height: 1.5,
+                  fontWeight: FontWeight.bold,
+                  //color: Color.fromARGB(255, 15, 52, 61),
+                ),
               ),
               Text(
                 "Nosso projeto para a A3!",
@@ -42,6 +45,8 @@ class BannerA3 extends StatelessWidget {
               ),
             ],
           ),
+
+          //Logo
           Image.asset(
             "assets/Logo02.png",
             width: screenWidth / 2,

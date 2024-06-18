@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:petshop/Widgets/Banner.dart';
 import 'package:petshop/Widgets/Header.dart';
+import 'package:petshop/Widgets/PetBanner.dart';
+import 'package:petshop/Widgets/UserBanner.dart';
 import 'package:petshop/pages/user_delete_page.dart';
 import 'package:petshop/pages/user_info_page.dart';
 import 'package:petshop/pages/user_create_page.dart';
@@ -18,11 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       title: 'PetCare App',
-
       home: const MyHomePage(title: 'PetCare App'),
-      
       routes: {
         "/user-info": (context) => const UserInfoPage(),
         "/user-create": (context) => const UserCreatePage(),
@@ -50,8 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final screenWidth = screenSize.width;
 
     return Scaffold(
-
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      //backgroundColor: const Color.fromARGB(255, 255, 255, 255),
 
       //ListView
       body: ListView(
@@ -59,36 +58,19 @@ class _MyHomePageState extends State<MyHomePage> {
 
         //Divisões
         children: [
-
           //HEADER
-            const Header(),
+          const Header(),
 
           //BANNER
-            const BannerA3(),
+          const BannerA3(),
 
           //USER
-            Container(
-              height: 500,
-              width: double.maxFinite,
-              color: Colors.black87,
-            ),
+          const Userbanner(),
 
-          //USER
-            Container(
-              height: 500,
-              width: double.maxFinite,
-            ),
-
-
+          //PET
+          const PetBanner(),
         ],
       ),
-
-
-      
-
-
-
-
-      );
+    );
   }
 }
