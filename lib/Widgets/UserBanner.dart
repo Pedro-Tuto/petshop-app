@@ -76,7 +76,9 @@ class Userbanner extends StatelessWidget {
               SizedBox(
                 width: 180,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/user-update");
+                  },
                   child: const Text(
                     "Editar Usuário",
                     style: TextStyle(

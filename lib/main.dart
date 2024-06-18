@@ -3,11 +3,13 @@ import 'package:petshop/Widgets/Banner.dart';
 import 'package:petshop/Widgets/Header.dart';
 import 'package:petshop/Widgets/PetBanner.dart';
 import 'package:petshop/Widgets/UserBanner.dart';
+import 'package:petshop/pages/pet_delete_page.dart';
 import 'package:petshop/pages/user_delete_page.dart';
 import 'package:petshop/pages/user_info_page.dart';
 import 'package:petshop/pages/user_create_page.dart';
 import 'package:petshop/pages/pet_info_page.dart';
 import 'package:petshop/pages/pet_create_page.dart';
+import 'package:petshop/pages/user_update_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +31,8 @@ class MyApp extends StatelessWidget {
         "/pet-info": (context) => const PetInfoPage(),
         "/pet-create": (context) => const PetCreatePage(),
         "/user-delete": (context) => const UserDeletePage(),
+        "/pet-delete": (context) => const PetDeletePage(),
+        "/user-update": (context) => const UserUpdatePage()
       },
     );
   }
