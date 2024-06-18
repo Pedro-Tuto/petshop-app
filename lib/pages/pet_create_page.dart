@@ -2,42 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:openapi/api.dart';
 import 'package:petshop/request.dart';
 
-class UserCreatePage extends StatefulWidget {
-  const UserCreatePage({super.key});
+class PetCreatePage extends StatefulWidget {
+  const PetCreatePage({super.key});
 
   @override
-  State<UserCreatePage> createState() => _UserCreatePageState();
+  State<PetCreatePage> createState() => _PetCreatePageState();
 }
 
-class _UserCreatePageState extends State<UserCreatePage> {
+class _PetCreatePageState extends State<PetCreatePage> {
   final form = <String, dynamic>{};
 
   // Controllers para os campos de texto
   final nameController = TextEditingController();
-  final emailController = TextEditingController();
-  final phoneController = TextEditingController();
-  final addressController = TextEditingController();
-  final passwordController = TextEditingController();
+  final breedController = TextEditingController();
+  final colorController = TextEditingController();
+  final dateOfBirthController = TextEditingController();
+  final weightController = TextEditingController();
+  final ownerIdController = TextEditingController();
 
-  void createUser() async {
-    final userCreate = UserCreate.fromJson(form);
-    await api.postUserUsersPost(userCreate!);
-    form.clear();
-    
-    // Limpar os campos após a criação do usuário
+  void createPet() async {
+    final petCreate = PetCreate.fromJson(form);
+    await api.postPetPetsPost(petCreate!);
+
+    // Limpar os campos após a criação do pet
     nameController.clear();
-    emailController.clear();
-    phoneController.clear();
-    addressController.clear();
-    passwordController.clear();
-    
-    // Exibir popup de confirmação
+    breedController.clear();
+    colorController.clear();
+    dateOfBirthController.clear();
+    weightController.clear();
+    ownerIdController.clear();
+
+    // Resetar o formulário
+    form.clear();
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("Sucesso"),
-          content: Text("Usuário cadastrado com sucesso!"),
+          content: Text("Pet cadastrado com sucesso!"),
           actions: <Widget>[
             ElevatedButton(
               child: Text("OK"),
@@ -55,7 +58,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cadastrar Usuário"),
+        title: Text("Cadastrar Pet"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Container(
@@ -92,14 +95,14 @@ class _UserCreatePageState extends State<UserCreatePage> {
             SizedBox(
               width: 300.0,
               child: TextField(
-                controller: emailController,
+                controller: breedController,
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 style: const TextStyle(
                   fontSize: 13,
                 ),
                 decoration: const InputDecoration(
-                  labelText: "E-mail",
+                  labelText: "Raça",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.black,
@@ -108,7 +111,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
                   ),
                 ),
                 onChanged: (value) {
-                  form["email"] = value;
+                  form["breed"] = value;
                 },
               ),
             ),
@@ -117,14 +120,14 @@ class _UserCreatePageState extends State<UserCreatePage> {
               child: SizedBox(
                 width: 300.0,
                 child: TextField(
-                  controller: phoneController,
+                  controller: colorController,
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   style: const TextStyle(
                     fontSize: 13,
                   ),
                   decoration: const InputDecoration(
-                    labelText: "Telefone",
+                    labelText: "Cor",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.black,
@@ -133,7 +136,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
                     ),
                   ),
                   onChanged: (value) {
-                    form["phone"] = value;
+                    form["color"] = value;
                   },
                 ),
               ),
@@ -141,23 +144,24 @@ class _UserCreatePageState extends State<UserCreatePage> {
             SizedBox(
               width: 300.0,
               child: TextField(
-                controller: addressController,
+                controller: dateOfBirthController,
                 textAlign: TextAlign.center,
                 maxLines: 1,
                 style: const TextStyle(
                   fontSize: 13,
                 ),
                 decoration: const InputDecoration(
-                  labelText: "Endereço",
+                  labelText: "Data de nascimento",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.black,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
+                  hintText: "yyyy-MM-dd",
                 ),
                 onChanged: (value) {
-                  form["address"] = value;
+                  form["date_of_birth"] = value;
                 },
               ),
             ),
@@ -166,14 +170,14 @@ class _UserCreatePageState extends State<UserCreatePage> {
               child: SizedBox(
                 width: 300.0,
                 child: TextField(
-                  controller: passwordController,
+                  controller: weightController,
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   style: const TextStyle(
                     fontSize: 13,
                   ),
                   decoration: const InputDecoration(
-                    labelText: "Senha",
+                    labelText: "Peso",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.black,
@@ -182,15 +186,41 @@ class _UserCreatePageState extends State<UserCreatePage> {
                     ),
                   ),
                   onChanged: (value) {
-                    form["password"] = value;
+                    form["weight"] = value;
                   },
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: createUser,
-              child: Text("Cadastrar"),
+            SizedBox(
+              width: 300.0,
+              child: TextField(
+                controller: ownerIdController,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                style: const TextStyle(
+                  fontSize: 13,
+                ),
+                decoration: const InputDecoration(
+                  labelText: "Id do dono",
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.black,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
+                onChanged: (value) {
+                  form["owner_id"] = value;
+                },
+              ),
             ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ElevatedButton(
+                onPressed: createPet,
+                child: Text("Cadastrar"),
+              ),
+            )
           ],
         ),
       ),

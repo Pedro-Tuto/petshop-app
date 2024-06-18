@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:openapi/api.dart';
 import 'package:petshop/request.dart';
 
-class UserInfoPage extends StatefulWidget {
-  const UserInfoPage({super.key});
+class PetInfoPage extends StatefulWidget {
+  const PetInfoPage({super.key});
 
   @override
-  State<UserInfoPage> createState() => _UserInfoPageState();
+  State<PetInfoPage> createState() => _PetInfoPageState();
 }
 
-class _UserInfoPageState extends State<UserInfoPage> {
-  UserRead? _user;
+class _PetInfoPageState extends State<PetInfoPage> {
+  PetRead? _pet;
 
-  void loadUser(int userId) async {
+  void loadPet(int petId) async {
     try {
-      final user = await api.getUserUsersIdGet(userId);
+      final pet = await api.getPetPetsIdGet(petId);
 
       setState(() {
-        _user = user;
+        _pet = pet;
       });
     } catch (e) {
       setState(() {
-        _user = null;
+        _pet = null;
       });
     }
   }
@@ -30,7 +30,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Usuários"),
+          title: Text("Pets"),
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
         body: Container(
@@ -40,7 +40,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
               Padding(
                   padding: EdgeInsets.all(20),
                   child: SizedBox(
-                      width: 200.0,
+                      width: 300.0,
                       child: TextField(
                         textAlign: TextAlign.center,
                         maxLines: 1,
@@ -58,24 +58,30 @@ class _UserInfoPageState extends State<UserInfoPage> {
                             ),
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
-                          hintText: "Digite um Id de um usuário para buscar...",
+                          hintText: "Digite um Id de um pet para buscar...",
                         ),
                         onChanged: (value) {
-                          final userId = int.tryParse(value);
-                          if (userId != null) {
-                            loadUser(userId);
+                          final petId = int.tryParse(value);
+                          if (petId != null) {
+                            loadPet(petId);
                           } else {
-                            loadUser(0);
+                            loadPet(0);
                           }
                         },
                       ))),
-              if (_user != null) ...[
-                Text("Nome do usuário: ${_user!.name}"),
-                Text("Endereço do usuário: ${_user?.address}"),
-                Text("Email do usuário: ${_user?.email}"),
-                Text("Telefone do usuário: ${_user?.phone}"),
+              if (_pet != null) ...[
+                Text("Nome do pet: ${_pet!.name}"),
+                Text("Raça do pet: ${_pet!.breed}"),
+                Text("Cor do pet: ${_pet!.color}"),
+                Text(
+                    "Data de nascimento do pet: ${_pet!.dateOfBirth.toString()}"),
+                Text("Peso do pet: ${_pet!.weight.toString()}"),
+                Text("Nome do dono: ${_pet!.owner.name}"),
+                Text("Endereço do dono: ${_pet!.owner.address}"),
+                Text("Email do dono: ${_pet!.owner.email}"),
+                Text("Telefone do dono: ${_pet!.owner.phone}"),
               ] else ...[
-                const Text("Usuário não encontrado"),
+                const Text("Pet não encontrado"),
               ],
             ],
           ),

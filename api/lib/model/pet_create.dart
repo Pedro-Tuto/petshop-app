@@ -31,7 +31,7 @@ class PetCreate {
 
   num? weight;
 
-  int? ownerId;
+  num? ownerId;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PetCreate &&
@@ -100,7 +100,9 @@ class PetCreate {
         weight: json[r'weight'] == null
             ? null
             : num.parse('${json[r'weight']}'),
-        ownerId: mapValueOfType<int>(json, r'owner_id'),
+        ownerId: json[r'owner_id'] == null
+            ? null
+            : num.parse('${json[r'owner_id']}'),
       );
     }
     return null;
