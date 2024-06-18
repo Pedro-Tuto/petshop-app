@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petshop/Widgets/Header.dart';
 import 'package:petshop/pages/user_delete_page.dart';
 import 'package:petshop/pages/user_info_page.dart';
 import 'package:petshop/pages/user_create_page.dart';
@@ -55,53 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
         //Divisões
         children: [
 
-          //MAIN
-            Container(
-              height: 60,
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-              width: double.maxFinite,
-
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [Color.fromARGB(0, 0, 217, 255), Color.fromARGB(255, 115, 190, 233),],),
-                borderRadius: BorderRadius.circular(100),
-              ),
-
-              //Header
-              child: Row(
-                children: [
-
-                  //Logo
-                  const Padding(padding: EdgeInsets.only(left: 20),
-                    child: Text("Petshop App", style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 15, 52, 61),
-                  ),),
-                  ),
-
-                  
-                  
-                  Spacer(),
-
-                  //Botões
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Row(
-                      children: [
-                        //Botão User
-                        TextButton(onPressed: (){Navigator.of(context).pushNamed("/user-create");}, child: const Text("New User", style: TextStyle(color: Colors.white),),),
-
-                        //Botão Pet
-                        TextButton(onPressed: (){Navigator.of(context).pushNamed("/pet-create");}, child: const Text("New Pet", style: TextStyle(color: Colors.white),),),
-                      ],
-                    ),
-                  ),
-
-
-                  
-                ],
-              ),
-            ),
+          //HEADER
+            const Header(),
 
           //BANNER
             Container(
