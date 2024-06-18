@@ -61,18 +61,20 @@ class _MyHomePageState extends State<MyHomePage> {
         scrollDirection: Axis.vertical,
 
         //Divisões
-        children: [
+        children: const [
           //HEADER
-          const Header(),
+          Header(),
 
           //BANNER
-          const BannerA3(),
+          BannerA3(),
 
           //USER
-          const Userbanner(),
+          Userbanner(),
 
           //PET
-          const PetBanner(),
+          PetBanner(),
+
+          //FOOTER
         ],
       ),
     );

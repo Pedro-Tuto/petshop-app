@@ -6,18 +6,29 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      height: 80,
       width: double.maxFinite,
+      //margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
 
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Color.fromARGB(255, 217, 249, 255),
-            Color.fromARGB(255, 150, 216, 255),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(100),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        //Header Shadow
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black,
+            blurRadius: 15,
+            spreadRadius: 10,
+            offset: Offset(0, 10),
+          )
+        ]
+
+        //gradient: const LinearGradient(
+          //colors: [
+          //  Color.fromARGB(255, 217, 249, 255),
+          //  Color.fromARGB(255, 150, 216, 255),
+          //],
+        //),
+        //borderRadius: BorderRadius.circular(100),
       ),
 
       //Header
