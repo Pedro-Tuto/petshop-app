@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:petshop/pages/user_create_page.dart';
 import 'package:petshop/pages/user_info_page.dart';
+import 'package:petshop/pages/user_create_page.dart';
+import 'package:petshop/pages/pet_info_page.dart';
+import 'package:petshop/pages/pet_create_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/user-info": (context) => const UserInfoPage(),
         "/user-create": (context) => const UserCreatePage(),
+        "/pet-info": (context) => const PetInfoPage(),
+        "/pet-create": (context) => const PetCreatePage(),
       },
     );
   }
@@ -60,6 +64,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.of(context).pushNamed("/user-create");
                 },
                 child: Text("Cadastrar Usuário"),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("/pet-info");
+              },
+              child: Text("Pets"),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/pet-create");
+                },
+                child: Text("Cadastrar Pet"),
               ),
             ),
           ],

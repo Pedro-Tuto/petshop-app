@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:openapi/api.dart';
 import 'package:petshop/request.dart';
 
-class UserCreatePage extends StatefulWidget {
-  const UserCreatePage({super.key});
+class PetCreatePage extends StatefulWidget {
+  const PetCreatePage({super.key});
 
   @override
-  State<UserCreatePage> createState() => _UserInfoPageState();
+  State<PetCreatePage> createState() => _UserInfoPageState();
 }
 
-class _UserInfoPageState extends State<UserCreatePage> {
+class _UserInfoPageState extends State<PetCreatePage> {
   final form = <String, dynamic>{};
 
-  void createUser() async {
-    final userCreate = UserCreate.fromJson(form);
-    await api.postUserUsersPost(userCreate!);
+  void createPet() async {
+    final petCreate = PetCreate.fromJson(form);
+    await api.postPetPetsPost(petCreate!);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Cadastrar Usuário"),
+          title: Text("Cadastrar Pet"),
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
         body: Container(
@@ -61,7 +61,7 @@ class _UserInfoPageState extends State<UserCreatePage> {
                       fontSize: 13,
                     ),
                     decoration: const InputDecoration(
-                      labelText: "E-mail",
+                      labelText: "Raça",
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.black,
@@ -70,7 +70,7 @@ class _UserInfoPageState extends State<UserCreatePage> {
                       ),
                     ),
                     onChanged: (value) {
-                      form["email"] = value;
+                      form["breed"] = value;
                     }),
               ),
               Padding(
@@ -84,7 +84,7 @@ class _UserInfoPageState extends State<UserCreatePage> {
                             fontSize: 13,
                           ),
                           decoration: const InputDecoration(
-                            labelText: "Telefone",
+                            labelText: "Cor",
                             border: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.black,
@@ -94,7 +94,7 @@ class _UserInfoPageState extends State<UserCreatePage> {
                             ),
                           ),
                           onChanged: (value) {
-                            form["phone"] = value;
+                            form["color"] = value;
                           }))),
               SizedBox(
                   width: 300.0,
@@ -105,16 +105,17 @@ class _UserInfoPageState extends State<UserCreatePage> {
                       fontSize: 13,
                     ),
                     decoration: const InputDecoration(
-                      labelText: "Endereço",
+                      labelText: "Data de nascimento",
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.black,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                       ),
+                      hintText: "yyyy-MM-dd",
                     ),
                     onChanged: (value) {
-                      form["address"] = value;
+                      form["date_of_birth"] = value;
                     },
                   )),
               Padding(
@@ -128,7 +129,7 @@ class _UserInfoPageState extends State<UserCreatePage> {
                           fontSize: 13,
                         ),
                         decoration: const InputDecoration(
-                          labelText: "Senha",
+                          labelText: "Peso",
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.black,
@@ -137,10 +138,34 @@ class _UserInfoPageState extends State<UserCreatePage> {
                           ),
                         ),
                         onChanged: (value) {
-                          form["password"] = value;
+                          form["weight"] = value;
                         },
                       ))),
-              ElevatedButton(onPressed: createUser, child: Text("Cadastrar"))
+              SizedBox(
+                  width: 300.0,
+                  child: TextField(
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    style: const TextStyle(
+                      fontSize: 13,
+                    ),
+                    decoration: const InputDecoration(
+                      labelText: "Id do dono",
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.black,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                      ),
+                    ),
+                    onChanged: (value) {
+                      form["owner_id"] = value;
+                    },
+                  )),
+              Padding(
+                  padding: EdgeInsets.all(20),
+                  child: ElevatedButton(
+                      onPressed: createPet, child: Text("Cadastrar")))
             ],
           ),
         ));
