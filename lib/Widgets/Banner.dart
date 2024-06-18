@@ -15,6 +15,7 @@ class BannerA3 extends StatelessWidget {
       height: screenSize.height / 1.2,
       constraints: const BoxConstraints(
         minHeight: 350,
+        maxHeight: 500,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
