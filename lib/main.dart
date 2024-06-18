@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petshop/Widgets/Banner.dart';
 import 'package:petshop/Widgets/Header.dart';
 import 'package:petshop/pages/user_delete_page.dart';
 import 'package:petshop/pages/user_info_page.dart';
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      title: 'Petshop App',
+      title: 'PetCare App',
 
-      home: const MyHomePage(title: 'Petshop App'),
+      home: const MyHomePage(title: 'PetCare App'),
       
       routes: {
         "/user-info": (context) => const UserInfoPage(),
@@ -45,6 +46,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
+
     return Scaffold(
 
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
@@ -60,10 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const Header(),
 
           //BANNER
-            Container(
-              height: 500,
-              width: double.maxFinite,
-            ),
+            const BannerA3(),
 
           //USER
             Container(

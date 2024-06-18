@@ -21,11 +21,12 @@ class Header extends StatelessWidget {
 
                   //Logo
                   const Padding(padding: EdgeInsets.only(left: 20),
-                    child: Text("Petshop App", style: TextStyle(
+                    child: Text("PetCare", style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 15, 52, 61),
                   ),),
+                  
                   ),
 
                   
