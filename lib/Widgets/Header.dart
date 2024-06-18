@@ -6,7 +6,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 60,
       width: double.maxFinite,
       //margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
 
@@ -20,59 +20,77 @@ class Header extends StatelessWidget {
             spreadRadius: 10,
             offset: Offset(0, 10),
           )
-        ]
-
-        //gradient: const LinearGradient(
-          //colors: [
-          //  Color.fromARGB(255, 217, 249, 255),
-          //  Color.fromARGB(255, 150, 216, 255),
-          //],
-        //),
-        //borderRadius: BorderRadius.circular(100),
+        ],
       ),
 
       //Header
       child: Row(
         children: [
           //Logo
-          const Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: Text(
-              "PetCare",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 15, 52, 61),
-              ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Image.asset(
+              "assets/LogoHeader.png",
+              width: 50,
+              height: 50,
             ),
           ),
 
-          Spacer(),
+          const Spacer(),
 
           //Botões
           Padding(
             padding: const EdgeInsets.only(right: 50),
             child: Row(
               children: [
+
                 //Botão User
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/user-create");
-                  },
-                  child: const Text(
-                    "New User",
-                    style: TextStyle(color: Color.fromARGB(255, 15, 52, 61), fontWeight: FontWeight.bold, fontSize: 16,),
+                Container(
+                  width: 120,
+                  height: 40,
+                  decoration: ShapeDecoration(
+                      color: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed("/user-create");
+                    },
+                    child: const Text(
+                      "NEW USER",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
                 ),
 
+                const SizedBox(width: 20),
+
                 //Botão Pet
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/pet-create");
-                  },
-                  child: const Text(
-                    "New Pet",
-                    style: TextStyle(color: Color.fromARGB(255, 15, 52, 61), fontWeight: FontWeight.bold, fontSize: 16,),
+                Container(
+                  width: 120,
+                  height: 40,
+                  decoration: ShapeDecoration(
+                      color: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed("/pet-create");
+                    },
+                    child: const Text(
+                      "NEW PET",
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
                 ),
               ],
