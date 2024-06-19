@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
         //Header Shadow
         boxShadow: [
           BoxShadow(
-            color: Color(0x0C000000),
+            color: Color.fromARGB(20, 0, 0, 0),
             blurRadius: 15,
             spreadRadius: 10,
             offset: Offset(0, 10),

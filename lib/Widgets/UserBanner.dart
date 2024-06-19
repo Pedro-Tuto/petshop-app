@@ -9,9 +9,7 @@ class Userbanner extends StatelessWidget {
     final screenWidth = screenSize.width;
 
     return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 20,
-      ),
+      margin: const EdgeInsets.only(top: 80, right: 100,),
       height: screenSize.height / 1.2,
       constraints: const BoxConstraints(
         minHeight: 250,
@@ -20,16 +18,32 @@ class Userbanner extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          //Logo
+          //Imagem
           Image.asset(
-            "assets/Logo02.png",
+            "assets/User_Image.png",
             width: screenWidth / 2,
           ),
+
+          //const Spacer(),
 
           //Botões
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              //Título
+              const Text(
+                "Gerenciamento de usuários",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 15, 52, 61),
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
               //Botão Get
               SizedBox(
                 width: 180,
@@ -37,11 +51,15 @@ class Userbanner extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushNamed("/user-info");
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
                   child: const Text(
                     "Buscar Usuário",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -58,11 +76,15 @@ class Userbanner extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushNamed("/user-create");
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
                   child: const Text(
                     "Cadastrar Usuário",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -79,11 +101,15 @@ class Userbanner extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushNamed("/user-update");
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
                   child: const Text(
                     "Editar Usuário",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -100,17 +126,21 @@ class Userbanner extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pushNamed("/user-delete");
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
                   child: const Text(
                     "Deletar Usuário",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -9,108 +9,136 @@ class PetBanner extends StatelessWidget {
     final screenWidth = screenSize.width;
 
     return Container(
-            margin: const EdgeInsets.symmetric(
-              horizontal: 20,
-            ),
-            height: screenSize.height / 1.2,
-            constraints: const BoxConstraints(
-              minHeight: 250,
-              maxHeight: 400,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                //Botões
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    //Botão Get
-                    SizedBox(
-                      width: 180,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed("/pet-info");
-                        },
-                        child: const Text(
-                          "Buscar Pet",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(
-                      height: 15,
-                    ),
-
-                    //Botão Create
-                    SizedBox(
-                      width: 180,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed("/pet-create");
-                        },
-                        child: const Text(
-                          "Cadastrar Pet",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(
-                      height: 15,
-                    ),
-
-                    //Botão Edit
-                    SizedBox(
-                      width: 180,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: const Text(
-                          "Editar Pet",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(
-                      height: 15,
-                    ),
-
-                    //Botão Delete
-                    SizedBox(
-                      width: 180,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed("/pet-delete");
-                        },
-                        child: const Text(
-                          "Deletar Pet",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+      margin: const EdgeInsets.only(top: 80, left: 100,),
+      height: screenSize.height / 1.2,
+      constraints: const BoxConstraints(
+        minHeight: 250,
+        maxHeight: 400,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          //Botões
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //Título
+              const Text(
+                "Gerenciamento de pets",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 15, 52, 61),
                 ),
+              ),
 
-                //Logo
-                Image.asset(
-                  "assets/Logo02.png",
-                  width: screenWidth / 2,
+              const SizedBox(
+                height: 20,
+              ),
+
+              //Botão Get
+              SizedBox(
+                width: 180,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/pet-info");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    "Buscar Pet",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-              ],
-            ),
-          );
+              ),
+
+              const SizedBox(
+                height: 15,
+              ),
+
+              //Botão Create
+              SizedBox(
+                width: 180,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/pet-create");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    "Cadastrar Pet",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 15,
+              ),
+
+              //Botão Edit
+              SizedBox(
+                width: 180,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    "Editar Pet",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 15,
+              ),
+
+              //Botão Delete
+              SizedBox(
+                width: 180,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/pet-delete");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                  ),
+                  child: const Text(
+                    "Deletar Pet",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          //Logo
+          Image.asset(
+            "assets/Pet_Image.png",
+            width: screenWidth / 2,
+          ),
+        ],
+      ),
+    );
   }
 }

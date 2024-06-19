@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petshop/Widgets/Banner.dart';
+import 'package:petshop/Widgets/Footer.dart';
 import 'package:petshop/Widgets/Header.dart';
 import 'package:petshop/Widgets/PetBanner.dart';
 import 'package:petshop/Widgets/UserBanner.dart';
@@ -54,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final screenWidth = screenSize.width;
 
     return Scaffold(
-      //backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Colors.white,
 
       //ListView
       body: ListView(
@@ -75,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           PetBanner(),
 
           //FOOTER
+          Footer(),
         ],
       ),
     );

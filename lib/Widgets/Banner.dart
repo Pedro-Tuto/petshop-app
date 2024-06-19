@@ -34,7 +34,7 @@ class BannerA3 extends StatelessWidget {
                   "Bem vindo ao PetCare App",
                   style: TextStyle(
                     fontSize: 42,
-                    height: 1.5,
+                    height: 1.2,
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 15, 52, 61),
                   ),
@@ -45,7 +45,7 @@ class BannerA3 extends StatelessWidget {
                   "Nosso projeto para a A3!",
                   style: TextStyle(
                     fontSize: 52,
-                    height: 1.5,
+                    height: 1.2,
                     fontWeight: FontWeight.bold,
                     color: Colors.orangeAccent,
                   ),
