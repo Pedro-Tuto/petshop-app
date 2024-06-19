@@ -42,7 +42,7 @@ class Footer extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           const Text(
-            '© 2024 Minha Empresa. Todos os direitos reservados.',
+            '© 2024 Petcare. Todos os direitos reservados.',
             style: TextStyle(fontSize: 14, color: Colors.white),
           ),
         ],
