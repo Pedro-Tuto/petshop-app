@@ -9,48 +9,50 @@ class BannerA3 extends StatelessWidget {
     final screenWidth = screenSize.width;
 
     return Container(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 20,
-      ),
-      height: screenSize.height / 1.2,
+      width: screenWidth,
+      color: const Color.fromARGB(255, 246, 246, 246),
       constraints: const BoxConstraints(
-        minHeight: 350,
-        maxHeight: 450,
+        minHeight: 150,
+        maxHeight: 250,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Stack(
         children: [
-          
-          //Título
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.05,
+              child: Image.asset(
+                "assets/Pattern02.png",
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Bem vindo ao PetCare App",
-                style: TextStyle(
-                  fontSize: 32,
-                  height: 1.5,
-                  fontWeight: FontWeight.bold,
-                  //color: Color.fromARGB(255, 15, 52, 61),
+              Center(
+                child: Text(
+                  "Bem vindo ao PetCare App",
+                  style: TextStyle(
+                    fontSize: 42,
+                    height: 1.5,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 15, 52, 61),
+                  ),
                 ),
               ),
-              Text(
-                "Nosso projeto para a A3!",
-                style: TextStyle(
-                  fontSize: 42,
-                  height: 1.5,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orangeAccent,
+              Center(
+                child: Text(
+                  "Nosso projeto para a A3!",
+                  style: TextStyle(
+                    fontSize: 52,
+                    height: 1.5,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orangeAccent,
+                  ),
                 ),
               ),
             ],
           ),
-
-          //Logo
-          Image.asset(
-            "assets/Logo02.png",
-            width: screenWidth / 2,
-          )
         ],
       ),
     );
