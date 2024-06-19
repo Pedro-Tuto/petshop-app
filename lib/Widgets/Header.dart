@@ -6,7 +6,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 70,
       width: double.maxFinite,
       //margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
 
@@ -15,7 +15,7 @@ class Header extends StatelessWidget {
         //Header Shadow
         boxShadow: [
           BoxShadow(
-            color: Colors.black,
+            color: Color(0x0C000000),
             blurRadius: 15,
             spreadRadius: 10,
             offset: Offset(0, 10),
@@ -43,7 +43,6 @@ class Header extends StatelessWidget {
             padding: const EdgeInsets.only(right: 50),
             child: Row(
               children: [
-
                 //Botão User
                 Container(
                   width: 120,

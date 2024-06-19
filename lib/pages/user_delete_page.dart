@@ -39,7 +39,6 @@ class _UserDeletePageState extends State<UserDeletePage> {
         userId = -1;
       });
     } catch (e) {
-
       // Exibindo o pop-up se o usuário não for encontrado
       showDialog(
         context: context,
@@ -64,10 +63,28 @@ class _UserDeletePageState extends State<UserDeletePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Deletar Usuário"),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      //AppBar
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight),
+        child: Container(
+            decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+              BoxShadow(
+                color: Color(0x0C000000),
+                blurRadius: 15,
+                spreadRadius: 10,
+                offset: Offset(0, 10),
+              )
+            ]),
+            child: AppBar(
+              title: const Text(
+                "Deletar Usuário",
+                style: TextStyle(color: Colors.black),
+              ),
+              backgroundColor: Colors.white,
+              elevation: 0,
+            )),
       ),
+
       body: Container(
         alignment: Alignment.topCenter,
         child: Column(
@@ -96,7 +113,7 @@ class _UserDeletePageState extends State<UserDeletePage> {
                     hintText: "Digite um Id de um usuário para deletar...",
                   ),
                   onChanged: (value) {
-                      userId = int.tryParse(value) ?? -1;
+                    userId = int.tryParse(value) ?? -1;
                   },
                 ),
               ),

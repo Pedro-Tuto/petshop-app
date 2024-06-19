@@ -29,10 +29,29 @@ class _UserInfoPageState extends State<UserInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Usuários"),
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+
+        //AppBar
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
+          child: Container(
+              decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                  color: Color(0x0C000000),
+                  blurRadius: 15,
+                  spreadRadius: 10,
+                  offset: Offset(0, 10),
+                )
+              ]),
+              child: AppBar(
+                title: const Text(
+                  "Buscar Usuário",
+                  style: TextStyle(color: Colors.black),
+                ),
+                backgroundColor: Colors.white,
+                elevation: 0,
+              )),
         ),
+
         body: Container(
           alignment: Alignment.topCenter,
           child: Column(
