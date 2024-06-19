@@ -60,7 +60,6 @@ class _UserInfoPageState extends State<UserInfoPage> {
           margin: EdgeInsets.only(top: 150),
           alignment: Alignment.topCenter,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                   padding: EdgeInsets.all(20),

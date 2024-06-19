@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petshop/constants/Color.dart';
 import 'package:petshop/request.dart';
 
 class PetDeletePage extends StatefulWidget {
@@ -64,6 +65,8 @@ class _PetDeletePageState extends State<PetDeletePage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
+      backgroundColor: CustomColor.Background,
+
       //AppBar
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -86,7 +89,9 @@ class _PetDeletePageState extends State<PetDeletePage> {
             )),
       ),
 
+      //Conteúdo
       body: Container(
+        margin: EdgeInsets.only(top: 150),
         alignment: Alignment.topCenter,
         child: Column(
           children: [
@@ -119,13 +124,28 @@ class _PetDeletePageState extends State<PetDeletePage> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                if (petId != -1) {
+
+            //Botão
+            SizedBox(
+              width: 120,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (petId != -1) {
                   deletePet(petId);
                 }
-              },
-              child: const Text("Deletar Pet"),
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: CustomColor.Text2,
+                ),
+                child: const Text(
+                  "Deletar",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: CustomColor.Text3,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

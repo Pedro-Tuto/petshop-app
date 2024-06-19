@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openapi/api.dart';
+import 'package:petshop/constants/Color.dart';
 import 'package:petshop/request.dart';
 
 class PetCreatePage extends StatefulWidget {
@@ -58,11 +59,13 @@ class _PetCreatePageState extends State<PetCreatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
 
+      backgroundColor: CustomColor.Background,
+
       //AppBar
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
-            decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+            decoration: const BoxDecoration(color: CustomColor.Background, boxShadow: [
               BoxShadow(
                 color: Color(0x0C000000),
                 blurRadius: 15,
@@ -73,9 +76,9 @@ class _PetCreatePageState extends State<PetCreatePage> {
             child: AppBar(
               title: const Text(
                 "Cadastrar Pet",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: CustomColor.Text4,),
               ),
-              backgroundColor: Colors.white,
+              backgroundColor: CustomColor.Background,
               elevation: 0,
             )),
       ),
@@ -100,7 +103,7 @@ class _PetCreatePageState extends State<PetCreatePage> {
                     labelText: "Nome",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
+                        color: CustomColor.Text1,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -124,7 +127,7 @@ class _PetCreatePageState extends State<PetCreatePage> {
                   labelText: "Raça",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.black,
+                      color: CustomColor.Text1,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
@@ -149,7 +152,7 @@ class _PetCreatePageState extends State<PetCreatePage> {
                     labelText: "Cor",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
+                        color: CustomColor.Text1,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -173,7 +176,7 @@ class _PetCreatePageState extends State<PetCreatePage> {
                   labelText: "Data de nascimento",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.black,
+                      color: CustomColor.Text1,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
@@ -199,7 +202,7 @@ class _PetCreatePageState extends State<PetCreatePage> {
                     labelText: "Peso",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
+                        color: CustomColor.Text1,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -223,7 +226,7 @@ class _PetCreatePageState extends State<PetCreatePage> {
                   labelText: "Id do dono",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.black,
+                      color: CustomColor.Text1,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
@@ -233,13 +236,27 @@ class _PetCreatePageState extends State<PetCreatePage> {
                 },
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(20),
+
+            const SizedBox(height: 20,),
+
+            //Botão
+            SizedBox(
+              width: 120,
               child: ElevatedButton(
                 onPressed: createPet,
-                child: Text("Cadastrar"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: CustomColor.Text2,
+                ),
+                child: const Text(
+                  "Cadastrar",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: CustomColor.Text3,
+                  ),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
