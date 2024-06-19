@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openapi/api.dart';
+import 'package:petshop/constants/Color.dart';
 import 'package:petshop/request.dart';
 
 class UserCreatePage extends StatefulWidget {
@@ -54,14 +55,15 @@ class _UserCreatePageState extends State<UserCreatePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
+      backgroundColor: CustomColor.Background,
+
       //AppBar
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
-            decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+            decoration: const BoxDecoration(color: CustomColor.Background, boxShadow: [
               BoxShadow(
-                color: Color(0x0C000000),
+                color: CustomColor.Shadow,
                 blurRadius: 15,
                 spreadRadius: 10,
                 offset: Offset(0, 10),
@@ -70,13 +72,14 @@ class _UserCreatePageState extends State<UserCreatePage> {
             child: AppBar(
               title: const Text(
                 "Cadastrar Usuário",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: CustomColor.Text4),
               ),
-              backgroundColor: Colors.white,
+              backgroundColor: CustomColor.Background,
               elevation: 0,
             )),
       ),
 
+      //Conteúdo
       body: Container(
         alignment: Alignment.topCenter,
         child: Column(
@@ -97,7 +100,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
                     labelText: "Nome",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
+                        color: CustomColor.Text1,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -121,7 +124,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
                   labelText: "E-mail",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.black,
+                      color: CustomColor.Text1,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
@@ -146,7 +149,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
                     labelText: "Telefone",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
+                        color: CustomColor.Text1,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -170,7 +173,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
                   labelText: "Endereço",
                   border: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Colors.black,
+                      color: CustomColor.Text1,
                     ),
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                   ),
@@ -195,7 +198,7 @@ class _UserCreatePageState extends State<UserCreatePage> {
                     labelText: "Senha",
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
+                        color: CustomColor.Text1,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -206,9 +209,22 @@ class _UserCreatePageState extends State<UserCreatePage> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: createUser,
-              child: Text("Cadastrar"),
+            SizedBox(
+              width: 120,
+              child: ElevatedButton(
+                onPressed: createUser,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: CustomColor.Text2,
+                ),
+                child: const Text(
+                  "Cadastrar",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: CustomColor.Text3,
+                  ),
+                ),
+              ),
             ),
           ],
         ),

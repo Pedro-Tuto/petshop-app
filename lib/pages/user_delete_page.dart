@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petshop/constants/Color.dart';
 import 'package:petshop/request.dart';
 
 class UserDeletePage extends StatefulWidget {
@@ -63,13 +64,16 @@ class _UserDeletePageState extends State<UserDeletePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColor.Background,
+
       //AppBar
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight),
         child: Container(
-            decoration: const BoxDecoration(color: Colors.white, boxShadow: [
+            decoration:
+                const BoxDecoration(color: CustomColor.Background, boxShadow: [
               BoxShadow(
-                color: Color(0x0C000000),
+                color: CustomColor.Shadow,
                 blurRadius: 15,
                 spreadRadius: 10,
                 offset: Offset(0, 10),
@@ -78,21 +82,24 @@ class _UserDeletePageState extends State<UserDeletePage> {
             child: AppBar(
               title: const Text(
                 "Deletar Usuário",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: CustomColor.Text4),
               ),
               backgroundColor: Colors.white,
               elevation: 0,
             )),
       ),
 
+      //Conteúdo
       body: Container(
+        margin: EdgeInsets.only(top: 150),
         alignment: Alignment.topCenter,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.all(20),
               child: SizedBox(
-                width: 200.0,
+                width: 350.0,
                 child: TextField(
                   textAlign: TextAlign.center,
                   maxLines: 1,
@@ -102,11 +109,11 @@ class _UserDeletePageState extends State<UserDeletePage> {
                   decoration: const InputDecoration(
                     suffixIcon: Icon(
                       Icons.search,
-                      color: Colors.black,
+                      color: CustomColor.Text1,
                     ),
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                        color: Colors.black,
+                        color: CustomColor.Text1,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
@@ -118,13 +125,26 @@ class _UserDeletePageState extends State<UserDeletePage> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                if (userId != -1) {
-                  deleteUser(userId);
-                }
-              },
-              child: const Text("Deletar Usuário"),
+            SizedBox(
+              width: 120,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (userId != -1) {
+                    deleteUser(userId);
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: CustomColor.Text2,
+                ),
+                child: const Text(
+                  "Deletar",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: CustomColor.Text3,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
